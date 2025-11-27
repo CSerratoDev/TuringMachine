@@ -1,5 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox, filedialog
+from PIL import Image, ImageTk
+import os
+from algorithm import septuple, execute_machine
+
 
 root = tk.Tk()
 root.geometry("900x800")
@@ -21,6 +25,28 @@ def input_text():
     alphabet = str(input_ribbon.get())
     label_result.config(text="Your final answer is: " + str(alphabet))
 '''
+
+def drawing_images():
+    for widget in root.pack_slaves():
+        if isinstance(widget, tk.Label) and hasattr(widget, "image"):
+            widget.destroy()
+
+    frame_images = tk.Frame(root)
+    frame_images.pack(pady=10)
+
+    carpet = "."
+    images = [f for f in os.listdir(carpet) if f.startswith("cinta_paso_") and f.endswith(".png")]
+
+    for image_name in sorted(images):
+        route = os.path.join(carpet, image_name)
+        img = Image.open(route)
+        img = img.resize((300, 300))
+        img_tk = ImageTk.PhotoImage(img)
+
+        lbl = tk.Label(frame_images)
+        lbl.image = img_tk
+        lbl.pack(pady=5)
+
 def read_txt():
     file = filedialog.askopenfilename(filetypes=[("Text files", "*.txt")])
     if file:
@@ -30,6 +56,9 @@ def read_txt():
         text.insert(tk.INSERT, content)
 
     button_status()
+    mt = septuple(file)
+    execute_machine(mt)
+    drawing_images()
 
 #Input
 '''
@@ -42,7 +71,7 @@ label_result = tk.Label(text="Your final answer will be here!", font=("Arial", 1
 label_result.pack()
 
 #Create button
-button = tk.Button(root, text="Create", cursor="hand2", state="disabled")
+button = tk.Button(root, text="Create", command=message_create, cursor="hand2", state="disabled")
 button.pack()
 
 #Upload button
