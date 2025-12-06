@@ -1,0 +1,20 @@
+q0 q1 q2 q3 q4 qf
+$ 1 1 1 Δ Δ Δ Δ
+$ 1 x ■ Δ
+q0
+qf
+q0 $ $ R q1
+q1 1 1 R q1
+q1 Δ ■ L q2
+q2 X X L q2
+q2 1 X R q3
+q3 X X R q3
+q3 ■ ■ R q3
+q3 1 1 R q3
+q3 Δ 1 L q4
+q4 1 1 L q4
+q4 ■ ■ L q2
+q2 $ $ R qf
+qf X 1 R qf
+qf ■ ■ R qf
+qf 1 1 R qf
