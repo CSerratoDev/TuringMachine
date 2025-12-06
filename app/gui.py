@@ -15,7 +15,7 @@ class TuringMachineGUI:
 
         self.root = tk.Tk()
         self.root.geometry("1000x900")
-        self.root.title("System by Turing Machine")
+        self.root.title("GUI Turing Machine")
         self.root.resizable(True, True)
 
         self.upload_btn = ttk.Button(self.root, text="Upload (.txt)", command=self.read_txt)

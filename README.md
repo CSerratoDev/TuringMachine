@@ -4,7 +4,7 @@
 - [@cserratodev](https://github.com/CSerratoDev)
 
 
-# System Turing Machine
+# GUI Turing Machine
 
 [USA] This project implements a visual Turing Machine simulator, using Python, Tkinter and Graphviz.
 
